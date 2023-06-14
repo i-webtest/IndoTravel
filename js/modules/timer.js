@@ -52,7 +52,7 @@ export const timer = (deadline) => {
       if (n1 > 1 && n1 < 5) {
         return text[1];
       }
-      if (n1 == 1) {
+      if (n1 === 1) {
         return text[0];
       }
       return text[2];

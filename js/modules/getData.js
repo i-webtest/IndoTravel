@@ -102,7 +102,6 @@ export const getData = () => {
       currency: 'RUB',
       currencyDisplay: 'narrowSymbol',
     }).format(reservationPeople.value * obj.price);
-    console.log(currency);
 
     if (reservationPeople.value) {
       reservationData.textContent = `${reservationDate.value}, ${reservationPeople.value} ${people}`;

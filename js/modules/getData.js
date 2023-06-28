@@ -96,6 +96,25 @@ export const getData = () => {
     const result = data.filter((item) => item.date === reservationDate.value);
     const obj = result[0];
 
+    /*===========================*/
+
+    const formatDate = () => {
+      if (reservationDate.value !== '') {
+        const dates = [];
+        reservationDate.value.split('-').map((i) => {
+          const split = i.split('.');
+          dates.push(
+            new Date(`${split[1]}.${split[0]}`).toLocaleDateString('ru-RU', { month: 'long', day: '2-digit' }),
+          );
+        });
+        return `${dates[0]} - ${dates[1]}`;
+      } else {
+        return '';
+      }
+    };
+
+    /*============================*/
+
     const people = declination(reservationPeople.value, ['человек', 'человека', 'человек']);
     const currency = new Intl.NumberFormat('ru-RU', {
       style: 'currency',
@@ -104,7 +123,8 @@ export const getData = () => {
     }).format(reservationPeople.value * obj.price);
 
     if (reservationPeople.value) {
-      reservationData.textContent = `${reservationDate.value}, ${reservationPeople.value} ${people}`;
+      // reservationData.textContent = `${reservationDate.value}, ${reservationPeople.value} ${people}`;
+      reservationData.textContent = `${formatDate()}, ${reservationPeople.value} ${people}`;
 
       reservationPrice.textContent = currency;
     }

@@ -4,6 +4,8 @@ import { accordeon } from './modules/accordeon.js';
 import { airplane } from './modules/airplane.js';
 import { getData } from './modules/getData.js';
 import { menu } from './modules/menu.js';
+import { sendFooterForm } from './modules/sendFooterForm.js';
+import { sendForm } from './modules/sendForm.js';
 import { timer } from './modules/timer.js';
 
 const heroTimer = document.querySelector('.timer');
@@ -15,3 +17,5 @@ accordeon();
 menu();
 airplane();
 getData();
+sendForm();
+sendFooterForm();
